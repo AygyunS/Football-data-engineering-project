@@ -41,4 +41,10 @@ This Python-based project crawls data from Wikipedia using Apache Airflow, clean
 !!!
 Make sure to replace `your_access_key_here` with the actual Azure Container Access Key in the `.env` file.
 
+## Tableau Dashboard
+https://public.tableau.com/app/profile/aygyun.salim/viz/Football_Stadiums_Project/MainDasboard?publish=yes
+![image](https://github.com/AygyunS/Football-data-engineering-project/assets/32463645/f6786db4-7d72-4103-b4f1-2ea48a702da7)
+
+
+
 
