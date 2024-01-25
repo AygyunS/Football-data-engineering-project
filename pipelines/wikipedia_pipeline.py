@@ -2,8 +2,12 @@ import json
 
 import pandas as pd
 from geopy import Nominatim
+from dotenv import load_dotenv
+import os
 
 NO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/No-image-available.png/480px-No-image-available.png"
+
+load_dotenv()
 
 
 def get_wikipedia_page(url):
@@ -130,8 +134,6 @@ def write_wikipedia_data(**kwargs):
     data.to_csv(
         "abfs://footballdataeng@footballdataengstorage1.dfs.core.windows.net/data/"
         + file_name,
-        storage_options={
-            "account_key": "1qbESoHvSEHIUB0IESTRonj/TYj7caWtuqUwiesMYarGxwRViJM1YI2RndDJrDz/mErvv2Ker6Lp+AStVokp+Q=="
-        },
+        storage_options={"account_key": os.getenv("AZURE_STORAGE_ACCOUNT_KEY")},
         index=False,
     )
