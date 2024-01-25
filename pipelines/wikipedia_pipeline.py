@@ -4,6 +4,7 @@ import pandas as pd
 from geopy import Nominatim
 from dotenv import load_dotenv
 import os
+import time
 
 NO_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/No-image-available.png/480px-No-image-available.png"
 
@@ -78,12 +79,14 @@ def extract_wikipedia_data(**kwargs):
 
 
 def get_lat_long(country, city):
-    geolocator = Nominatim(user_agent="geoapiExercises")
+    custom_user_agent = "geoapiExercisesWithNominatim/1.0"
+    geolocator = Nominatim(user_agent=custom_user_agent)
     location = geolocator.geocode(f"{city}, {country}")
 
     if location:
         return location.latitude, location.longitude
 
+    time.sleep(1)
     return None
 
 
